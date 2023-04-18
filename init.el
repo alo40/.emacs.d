@@ -18,3 +18,5 @@
 ;; (load-theme 'deeper-blue nil)
  (load-theme 'misterioso nil)
 
+;; Disable line numbers for some modes
+(add-hook 'eshell-mode-hook 'display-line-numbers-mode -1) ; eshell
