@@ -19,4 +19,14 @@
  (load-theme 'misterioso nil)
 
 ;; Disable line numbers for some modes
-(add-hook 'eshell-mode-hook 'display-line-numbers-mode -1) ; eshell
+(add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0))) ; eshell
+(add-hook 'inferior-python-mode-hook (lambda () (display-line-numbers-mode 0))) ; run-python
+
+
+;; ;; use python-mode with the right version (not used, already default)
+;; (use-package python-mode
+;; 	     :ensure nil
+;; 	     :custom
+;; 	     (python-shell-interpreter "python3"))
+
+
