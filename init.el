@@ -15,8 +15,8 @@
 
 ;; load color theme
 ;; (load-theme 'deeper-blue nil)
-;; (load-theme 'misterioso nil)
-(load-theme 'doom-dracula nil)
+(load-theme 'misterioso nil)
+;; (load-theme 'doom-dracula nil)
 
 ;; MELPA
 (require 'package)
