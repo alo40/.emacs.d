@@ -15,8 +15,9 @@
 
 ;; load color theme
 ;; (load-theme 'deeper-blue nil)
-(load-theme 'misterioso nil)
+;; (load-theme 'misterioso nil)
 ;; (load-theme 'doom-dracula nil)
+(load-theme 'doom-tokyo-night nil)
 
 ;; MELPA
 (require 'package)
@@ -88,7 +89,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("944d52450c57b7cbba08f9b3d08095eb7a5541b0ecfb3a0a9ecd4a18f3c28948" default))
+   '("60ada0ff6b91687f1a04cc17ad04119e59a7542644c7c59fc135909499400ab8" "944d52450c57b7cbba08f9b3d08095eb7a5541b0ecfb3a0a9ecd4a18f3c28948" default))
  '(ispell-dictionary nil)
  '(package-selected-packages '(doom-themes vterm ## cmake-mode)))
 
