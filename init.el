@@ -1,10 +1,9 @@
-;; My EMACS config
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; MY EMACS CONFIG
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; don't show the splash screen
 (setq inhibit-startup-message t)
-
-;; ;; flahses when activated (only for testing)
-;; (setq visible-bell t)
 
 ;; some configurations
 (tool-bar-mode -1)
@@ -18,6 +17,22 @@
 ;; (load-theme 'deeper-blue nil)
 ;; (load-theme 'misterioso nil)
 (load-theme 'doom-dracula nil)
+
+;; MELPA
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(package-initialize)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; NOT USED
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; ;; flahses when activated (only for testing)
+;; (setq visible-bell t)
 
 ;; ;; Disable line numbers for some modes
 ;; (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0))) ; eshell
@@ -35,14 +50,6 @@
 ;;    (progn
 ;;      (setq vterm-max-scrollback 10000)
 ;;      (advice-add 'evil-collection-vterm-insert :before #'vterm-reset-cursor-point))))
-
-;; MELPA
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
-;; and `package-pinned-packages`. Most users will not need or want to do this.
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(package-initialize)
 
 ;; ;; install vterm from MELPA
 ;; (use-package vterm
@@ -71,7 +78,9 @@
 ;;   (doom-themes-org-config))
 
 
-;; AUTO-ADDED (don't change) ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; AUTO-ADDED (don't change) 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
