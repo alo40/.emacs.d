@@ -12,12 +12,20 @@
 
 ;; ;; display line numbers
 ;; (global-display-line-numbers-mode 1)
+(add-hook 'python-mode-hook 'display-line-numbers-mode)
 
 ;; load color theme
 ;; (load-theme 'deeper-blue nil)
 ;; (load-theme 'misterioso nil)
-;; (load-theme 'doom-dracula nil)
-(load-theme 'doom-tokyo-night nil)
+;; (load-theme 'doom-dracula nil)  ;; looks good in emacs
+;; (load-theme 'doom-tokyo-night nil)  
+(load-theme 'doom-dark+ nil)  ;; looks good in terminal
+
+;; font size
+(set-face-attribute 'default nil :height 110)
+
+;; full-screen
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; MELPA
 (require 'package)
@@ -26,6 +34,12 @@
 ;; and `package-pinned-packages`. Most users will not need or want to do this.
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
+
+;; ;; PYTHON (not working)
+;; (use-package python-mode
+;; 	     :ensure t
+;; 	     :custom
+;; 	     (python-shell-interpreter "python3"))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -38,12 +52,6 @@
 ;; ;; Disable line numbers for some modes
 ;; (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0))) ; eshell
 ;; (add-hook 'inferior-python-mode-hook (lambda () (display-line-numbers-mode 0))) ; run-python
-
-;; ;; use python-mode with the right version (not used, already default)
-;; (use-package python-mode
-;; 	     :ensure nil
-;; 	     :custom
-;; 	     (python-shell-interpreter "python3"))
 
 ;; ;; use vterm
 ;; (setup (:pkg vterm)
@@ -89,7 +97,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("60ada0ff6b91687f1a04cc17ad04119e59a7542644c7c59fc135909499400ab8" "944d52450c57b7cbba08f9b3d08095eb7a5541b0ecfb3a0a9ecd4a18f3c28948" default))
+   '("aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" "60ada0ff6b91687f1a04cc17ad04119e59a7542644c7c59fc135909499400ab8" "944d52450c57b7cbba08f9b3d08095eb7a5541b0ecfb3a0a9ecd4a18f3c28948" default))
  '(ispell-dictionary nil)
  '(package-selected-packages '(doom-themes vterm ## cmake-mode)))
 
