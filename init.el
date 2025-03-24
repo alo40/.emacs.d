@@ -4,22 +4,22 @@
 
 ;; This part needs to be at the very beginning to avoid a ""
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("e1f4f0158cd5a01a9d96f1f7cdcca8d6724d7d33267623cc433fe1c196848554" "512ce140ea9c1521ccaceaa0e73e2487e2d3826cc9d287275550b47c04072bc4" "70b596389eac21ab7f6f7eb1cf60f8e60ad7c34ead1f0244a577b1810e87e58c" "dc8285f7f4d86c0aebf1ea4b448842a6868553eded6f71d1de52f3dcbc960039" "2853dd90f0d49439ebd582a8cbb82b9b3c2a02593483341b257f88add195ad76" "8d3ef5ff6273f2a552152c7febc40eabca26bae05bd12bc85062e2dc224cde9a" "a44e2d1636a0114c5e407a748841f6723ed442dc3a0ed086542dc71b92a87aee" "2e05569868dc11a52b08926b4c1a27da77580daa9321773d92822f7a639956ce" "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" "60ada0ff6b91687f1a04cc17ad04119e59a7542644c7c59fc135909499400ab8" "944d52450c57b7cbba08f9b3d08095eb7a5541b0ecfb3a0a9ecd4a18f3c28948" default))
- '(ispell-dictionary nil)
- '(package-selected-packages '(pdf-tools rust-mode doom-themes vterm ## cmake-mode)))
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(custom-safe-themes
+;;    '("8c7e832be864674c220f9a9361c851917a93f921fedb7717b1b5ece47690c098" default))
+;;  '(ispell-dictionary nil)
+;;  '(package-selected-packages '(doom-themes gnu-elpa-keyring-update cmake-mode)))
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PDF VIEWER
@@ -42,14 +42,14 @@
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 
-;; ;; display line numbers
+;; display line numbers
 (global-display-line-numbers-mode 1)
 ;;
 (add-hook 'python-mode-hook 'display-line-numbers-mode)
 
-;; load color theme
+;; load color theme (use t to avoid initial prompt "trust this theme?")
 ;; (load-theme 'deeper-blue nil)
-(load-theme 'doom-dracula nil)  ;; looks good in emacs
+(load-theme 'doom-dracula t)  ;; looks good in emacs
 ;; (load-theme 'doom-dark+ nil)  ;; looks good in terminal
 
 ;; ;; font size
@@ -58,19 +58,11 @@
 ;; full-screen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; pdf-tools activation (use one time only)
-(pdf-tools-install)
+;; ;; pdf-tools activation (use one time only)
+;; (pdf-tools-install)
 
-;; pdf-tools config
-(add-hook 'pdf-view-mode-hook #'(lambda () (interactive) (display-line-numbers-mode -1)))
-
-;; ;; MELPA (not working) -> install packages using: M-x package-list-packages
-;; (require 'package)
-;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-;; ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
-;; ;; and `package-pinned-packages`. Most users will not need or want to do this.
-;; (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t) 
-;; (package-initialize)
+;; ;; pdf-tools config
+;; (add-hook 'pdf-view-mode-hook #'(lambda () (interactive) (display-line-numbers-mode -1)))
 
 ;; ;; PYTHON (not working)
 ;; (use-package python-mode
@@ -78,6 +70,18 @@
 ;; 	     :custom
 ;; 	     (python-shell-interpreter "python3"))
 
+;; MELPA
+;; how to after fresh installation: 
+;; 1.  Set package-check-signature to nil, e.g., M-: (setq package-check-signature nil) RET.
+;; 2.  Download the package gnu-elpa-keyring-update and run the function with the same name, e.g., M-x package-install RET gnu-elpa-keyring-update RET.
+;; 3.  Reset package-check-signature to the default value allow-unsigned, e.g., M-: (setq package-check-signature 'allow-unsigned) RET.
+
+(require 'package)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("gnu" . "https://elpa.gnu.org/packages/")
+                         ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+
+(package-initialize)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; -*- mode: elisp -*-
@@ -121,7 +125,7 @@
 ;; (package-initialize)
 ;; (package-refresh-contents)
 
-(require 'rust-mode)
+;; (require 'rust-mode)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -169,3 +173,18 @@
 ;;   (doom-themes-org-config))
 
 
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("8c7e832be864674c220f9a9361c851917a93f921fedb7717b1b5ece47690c098" default)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
